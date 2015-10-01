@@ -1,0 +1,27 @@
+{
+  "name": "halaei/hybrid-queue",
+  "description": "Hybrid queue driver for Laravel",
+  "keywords": ["Laravel", "Queue"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hamid Alaei V.",
+      "email": "hamid@opilo.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "illuminate/queue": "5.1.*"
+  },
+  "require-dev": {
+    "predis/predis": "~1.0",
+    "illuminate/redis": "5.1.*",
+    "phpunit/phpunit": "~4.0",
+    "mockery/mockery": "~0.9.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Halaei\\HybridQueue\\": "src/"
+    }
+  }
+}
