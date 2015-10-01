@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 
 class HybridQueueServiceProvider extends ServiceProvider
 {
-
     /**
      * Register the service provider.
      *

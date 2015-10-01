@@ -2,9 +2,10 @@
 
 namespace Halaei\HybridQueue;
 
+use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Queue\QueueManager;
 
-class HybridJob
+class HybridJob implements SelfHandling
 {
     /**
      * @var mixed the nested job
@@ -43,45 +44,5 @@ class HybridJob
     public function handle(QueueManager $queueManager)
     {
         $queueManager->connection($this->connection)->later($this->delay, $this->job, $this->data, $this->queue);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getJob()
-    {
-        return $this->job;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDelay()
-    {
-        return $this->delay;
-    }
-
-    /**
-     * @return string
-     */
-    public function getConnection()
-    {
-        return $this->connection;
-    }
-
-    /**
-     * @return string
-     */
-    public function getQueue()
-    {
-        return $this->queue;
     }
 }

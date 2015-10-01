@@ -58,14 +58,10 @@ class HybridQueueTest extends PHPUnit_Framework_TestCase
                 return true;
             }),
             Mockery::on(function(HybridJob $job) use ($delay){
-                $this->assertEquals('job', $job->getJob());
-                $this->assertEquals('data', $job->getData());
-                $this->assertSame($delay, $job->getDelay());
-                $this->assertEquals('redis', $job->getConnection());
-                $this->assertEquals(null, $job->getQueue());
+                $this->assertEquals(new HybridJob('job', 'data', $delay, 'redis', null), $job);
                 return true;
-            })
-            , '', null);
+            }),
+            '', null);
         $this->hybridQueue->later($delay, 'job', 'data');
     }
 
